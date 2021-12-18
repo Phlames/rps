@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+            let playerWin = 0;
+            let computerWin = 0;
+
+        function computerPlay () {
+            computerRNG = Math.floor(Math.random() * 3) + 1;
+
+            if (computerRNG == 1) {
+                return 'rock';
+                } else if (computerRNG == 2) {
+                    return 'paper'; 
+                } else {return 'scissors';}
+            }
+        function playerPlay() {
+            let playerSelection = prompt('rock or paper or scissors');
+                playerSelection = playerSelection.toLowerCase();
+            
+            return playerSelection;
+            }
+        function playRound (playerSelection, computerSelection) {
+        if (playerSelection == 'rock' && computerSelection == 'scissors') {
+            playerWin += 1; 
+            return 'you have won';}
+            else if (playerSelection == 'rock' && computerSelection == 'paper') {
+            computerWin += 1; 
+            return 'computer has won';}
+            else if (playerSelection == 'paper' && computerSelection == 'rock') {
+            playerWin += 1; 
+            return 'you have won';}
+            else if (playerSelection == 'paper' && computerSelection == 'scissors') {
+            computerWin += 1; 
+            return 'computer has won';}
+            else if (playerSelection == 'scissors' && computerSelection == 'paper') {
+            playerWin += 1; 
+            return 'you have won';}
+            else if (playerSelection == 'scissors' && computerSelection == 'rock') {
+            computerWin += 1; 
+            return 'computer has won';}
+            else {return "It's a tie";}
+            }
+
+        function game() {
+            while (playerWin < 5 && computerWin < 5) {
+                console.log(playRound (playerPlay(), computerPlay()));
+            }
+        }
+
+
+    </script>
+
+
+
+</body>
+</html>
+
+<!-- 
+rock paper scissors algorithm
+
+WHILE gamesWonPlayer || gamesWonComputer < 5 {
+    IF gameResult (rock, scissors)
+        playerWin + 1
+        ELSE IF result (rock, paper)
+            computerWin + 1
+        ELSE IF result (paper, rock)
+            playerWin + 1
+        ELSE IF result (paper, scissors)
+            computerWin + 1
+        ELSE IF result (scissors, paper)
+            playerWin + 1
+        ELSE IF result (scissors, rock)
+            computerWin + 1
+        ELSE isATie;
+}
+
+FUNCTION gameResult (a, b) {
+    a = player input (rock || paper || scissors)
+    b = random computer selection (1/3 chance each)
+}
+
+FUNCTION isATie {
+    a and b are equal, continue game
+}
+
+gameOver when gamesWonPlayer || gamesWonComputer = 5
+
+resetGame by making gamesWonPlayer && gamesWonComputer = 0
+
+-->
