@@ -4,62 +4,39 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="javascript.js" defer></script>
 </head>
 <body>
-    <script>
-            let playerWin = 0;
-            let computerWin = 0;
+    <header class="header"><h1>ROCK PAPER SCISSORS</h1>
+        <div class="explanation">Play rock paper scissors against your AI opponent. First to five wins!
+        </div>
+    </header>
 
-        function computerPlay () {
-            computerRNG = Math.floor(Math.random() * 3) + 1;
+    <div id="container">
+        <button id="rock">rock</button>
+        <button id="paper">paper</button>
+        <button id="scissors">scissors</button>
+    </div>
 
-            if (computerRNG == 1) {
-                return 'rock';
-                } else if (computerRNG == 2) {
-                    return 'paper'; 
-                } else {return 'scissors';}
-            }
-        function playerPlay() {
-            let playerSelection = prompt('rock or paper or scissors');
-                playerSelection = playerSelection.toLowerCase();
-            
-            return playerSelection;
-            }
-        function playRound (playerSelection, computerSelection) {
-        if (playerSelection == 'rock' && computerSelection == 'scissors') {
-            playerWin += 1; 
-            return 'you have won';}
-            else if (playerSelection == 'rock' && computerSelection == 'paper') {
-            computerWin += 1; 
-            return 'computer has won';}
-            else if (playerSelection == 'paper' && computerSelection == 'rock') {
-            playerWin += 1; 
-            return 'you have won';}
-            else if (playerSelection == 'paper' && computerSelection == 'scissors') {
-            computerWin += 1; 
-            return 'computer has won';}
-            else if (playerSelection == 'scissors' && computerSelection == 'paper') {
-            playerWin += 1; 
-            return 'you have won';}
-            else if (playerSelection == 'scissors' && computerSelection == 'rock') {
-            computerWin += 1; 
-            return 'computer has won';}
-            else {return "It's a tie";}
-            }
+    <div class="score"><h2>SCORE</h2>
+        <div class="score-container">
+            <p>PLAYER SCORE</p>
+            <div id="player-score">0</div>
+            <p>computer score</p>
+            <div id="computer-score">0</div>
+        </div>
+    </div>
 
-        function game() {
-            while (playerWin < 5 && computerWin < 5) {
-                console.log(playRound (playerPlay(), computerPlay()));
-            }
-        }
-
-
-    </script>
-
+    <div class="results"><h2>results</h2>
+        <div class="round-results"></div>
+        <button id="reset">Reset game</button>
+    </div>
 
 
 </body>
+<footer class="copyright">created by Phlames</footer>
 </html>
 
 <!-- 
